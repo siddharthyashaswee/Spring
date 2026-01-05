@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- load the properties file from the classpath -->
+    <context:property-placeholder location="classpath:sport.properties"/>
+	
+	<!--  just some logging bean copied from somewhere, ignore this -->
+	 <bean id="myLoggerConfig" class="com.springtutorial.springdemo.MyLoggerConfig" init-method="initLogger">
+    	<property name="rootLoggerLevel" value="FINE" />
+    	<property name="printedLoggerLevel" value="FINE"/>
+    </bean>
+
+	<!-- some dependency that is used by other beans -->
+	<bean id="myFortuneService"
+		class="com.springtutorial.springdemo.HappyFortuneService">
+	</bean>
+
+	<!-- bean configuration example with constructor injection -->
+	<bean id="myCoach" 
+		class="com.springtutorial.springdemo.BaseballCoach">
+			<constructor-arg ref="myFortuneService" />
+	</bean>
+	
+	<bean id="theCoach" 
+		class="com.springtutorial.springdemo.TrackCoach">
+			<constructor-arg ref="myFortuneService" />
+	</bean>
+	
+	<!-- bean configuration example with setter injection -->  
+	<bean id="myCricketCoach" 
+		class="com.springtutorial.springdemo.CricketCoach"> <!-- no constructor related reference here -->
+			<property name="fortuneService" ref="myFortuneService" />
+			<property name="emailAddress" value="${foo.email}" />
+			<property name="team" value="${foo.team}" /><!-- can also inject literal String values here -->
+	</bean>
+	
+	<!-- bean configuration example with setter injection for a random fortune service-->  
+	<bean id="randomFortuneService"
+		class="com.springtutorial.springdemo.RandomFortuneService">
+	</bean>
+
+	<bean id="randomCoach" 
+		class="com.springtutorial.springdemo.RandomCoach">
+			<property name="randomFortuneService" ref="randomFortuneService" />
+	</bean>
+</beans>
+
+
+
+
+
