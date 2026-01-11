@@ -1,11 +1,11 @@
-Create a lib folder in spring_demo_one
-Copy jars from the lib folder of the Spring framework library into this new lib folder.
+Use the lib folder from the spring_demo_one in eclipse in build path.
 
 # The project covers the following topics:
-XML file is used for setting up the Spring configuration.
+Spring configuration with Java Annotations.
 
 When the config file used is applicationContext.xml:
-- constructor and setter injection demo
+- constructor, setter, method, field injection demo
+- @Autowired, @Qualifier annotations
 - use of a .properties to file to inject values to class attributes.
 
 When using the config file beanScope-applicationContext.xml:
