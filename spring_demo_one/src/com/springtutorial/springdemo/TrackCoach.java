@@ -6,7 +6,7 @@ import org.springframework.beans.factory.DisposableBean;
  * This class acts as both a singleton and a prototype bean 
  * based on which bean is created by the App.
  * The prototype scoped beans MUST implement the DisposableBean interface. 
- * This interface defines a "destroy()" method.`
+ * This interface defines a "destroy()" method which can be overridden here. 
  */
 public class TrackCoach implements Coach, DisposableBean  {
 

@@ -1,26 +1,16 @@
 package com.springtutorial.springdemo;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
 /**
- * reads the propoerty values from a config file
+ * Java class only, no component Scan here
  */
-@Component
 public class SwimCoach implements Coach {
 
-	@Value("${foo.email}")
-	private String email;
-	
-	@Value("${foo.team}")
-	private String team;
-	
-	@Autowired
-	@Qualifier("randomFortuneService")
 	private FortuneService fortuneService;
 	
+	public SwimCoach(FortuneService theFortuneService) {
+		fortuneService = theFortuneService;
+	}
+
 	@Override
 	public String getDailyWorkout() {
 		return "do daily swimming.";
@@ -29,9 +19,5 @@ public class SwimCoach implements Coach {
 	@Override
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
-	}
-
-	public String getInfo() {
-		return "email: " +email+"\nTeam: "+team; 
 	}
 }

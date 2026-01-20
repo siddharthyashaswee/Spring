@@ -20,12 +20,7 @@ public class AnnotationDemoApp {
 		Coach theCoachField= context.getBean("tennisCoachField",Coach.class);
 		System.out.println(theCoachField.getDailyWorkout());
 		System.out.println(theCoachField.getDailyFortune());
-		
-		SwimCoach theSwimCoach= context.getBean("swimCoach",SwimCoach.class);
-		System.out.println(theSwimCoach.getDailyWorkout());
-		System.out.println(theSwimCoach.getDailyFortune());
-		System.out.println(theSwimCoach.getInfo());
-		
+				
 		context.close();
 	}
 

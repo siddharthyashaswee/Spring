@@ -21,20 +21,32 @@ Create a lib folder in spring_demo_one and then copy jars from the lib folder of
 * When using the config file beanScope-applicationContext.xml:
     * scope of beans, singleton and prototype.
     * init- and destroy-method of the singleton bean.
-    * destroy-method in case the scope of the bean is prototype.
+    * destroy-method in case the scope of the bean is prototype with MyCustomBeanProcessor.
 
 ### spring_demo_annotations
 
 Use the lib folder from the spring_demo_one in eclipse in build path. In this project, Spring configuration with Java Annotations is covered.
 
 * When the config file used is applicationContext.xml:
+	* Beans are created using the @Component scanning method.
     * constructor, setter, method, field injection demo.
-    * @Autowired, @Qualifier annotations for all above mentioned variants.
+    * @Component, @Autowired, @Qualifier, @Value annotations used in above mentioned variants.
     * use of a .properties to file to inject values to class attributes.
 
-* When using the config file beanScope-applicationContext.xml:
+* Lifecycle scope of beans is demonstrated with annotations itself. 
+	* Config file is still applicationContext.xml (since annotations take care of scope)
+	* See @Scope annotation in the class TennisCoach.java.
     * scope of beans, singleton and prototype.
-    * init- and destroy-method of the singleton bean.
-    * destroy-method in case the scope of the bean is prototype.
+    * @PostConstruct and @PreDestroy (similar to init- and destroy-method in XML) of the singleton bean.
+    * destroy-method in case the scope of the bean is prototype with MyCustomBeanProcessor.
+	
+* Pure java config (no XML) is demonstrated in SportConfig.java:
+	* Here @Component scanning is done. Main app: AnnotationJavaConfigApp.java
+	* A simple TennisCoach.java instance demonstrates this method.
+	* Additionally reading properties from a file is shown with SwimCoachProperties.java
+	
+* Pure java config (no XML) with NO @Component scanning is demonstrated in SportConfigNoComponentScan.java:
+	* SwimCoach.java demonstrates this above method. Main App: AnnotationJavaConfigNoComponentScanApp.java
+	* Pure Java classes can be wrapped into a bean in a spring application using this.
 
 
