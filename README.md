@@ -5,7 +5,7 @@ Covers Spring 5 Core, AOP, Spring MVC, Spring Security, Spring REST, Spring Boot
 ## Config
 - jdk 1.8
 - tomcat 9
-- eclipse editor used with tomcat
+- eclipse editor used with tomcat, set compliance to java 1.8
 - Spring 5.3.9
 
 ## Chronological order of folder commit:
@@ -25,7 +25,7 @@ Create a lib folder in spring_demo_one and then copy jars from the lib folder of
 
 ### spring_demo_annotations
 
-Use the lib folder from the spring_demo_one in eclipse in build path. In this project, Spring configuration with Java Annotations is covered.
+Use the lib folder from the spring_demo_one in eclipse in build path/libraries. In this project, Spring configuration with Java Annotations is covered.
 
 * When the config file used is applicationContext.xml:
 	* Beans are created using the @Component scanning method.
@@ -48,5 +48,20 @@ Use the lib folder from the spring_demo_one in eclipse in build path. In this pr
 * Pure java config (no XML) with NO @Component scanning is demonstrated in SportConfigNoComponentScan.java:
 	* SwimCoach.java demonstrates this above method. Main App: AnnotationJavaConfigNoComponentScanApp.java
 	* Pure Java classes can be wrapped into a bean in a spring application using this.
+
+### spring_mvc_demo
+Three JARs are required: commons-logging-1.2.jar, javax.servlet.jsp.jstl-1.2.1.jar, javax.servlet.jsp.jstl-api-1.2.1.jar. Put these inside lib folder inside WEB-INF. Additionally also put all jars from the Spring framework into lib otherwise it wont work.
+
+In this project, Spring configuration with MVC webapp is covered. 
+
+* config present in /WEB-INF/web.xml and /WEB-INF/spring-mvc-demo-servlet.xml
+	* web.xml has config for the Spring MVC DispatcherServlet.
+	* spring-mvc-demo-servlet.xml defines component-scan and properties for views.
+
+
+
+
+
+
 
 

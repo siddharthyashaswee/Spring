@@ -1,0 +1,6 @@
+/build/
+.project
+.jsdtscope
+.settings/
+/WebContent/WEB-INF/lib/
+.classpath
