@@ -10,6 +10,9 @@
     	http://www.springframework.org/schema/context/spring-context.xsd
     	http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        
+    <!-- Static resources such as css, javascript etc-->
+	<mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
 
 	<!-- Step 3: Add support for component scanning -->
 	<context:component-scan base-package="com.springtutorial.springdemo" />

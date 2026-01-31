@@ -49,16 +49,24 @@ Use the lib folder from the spring_demo_one in eclipse in build path/libraries. 
 	* SwimCoach.java demonstrates this above method. Main App: AnnotationJavaConfigNoComponentScanApp.java
 	* Pure Java classes can be wrapped into a bean in a spring application using this.
 
-### spring_mvc_demo
-Three JARs are required: commons-logging-1.2.jar, javax.servlet.jsp.jstl-1.2.1.jar, javax.servlet.jsp.jstl-api-1.2.1.jar. Put these inside lib folder inside WEB-INF. Additionally also put all jars from the Spring framework into lib otherwise it wont work.
+### spring_demo_mvc
+Three extra JARs are required: commons-logging-1.2.jar, javax.servlet.jsp.jstl-1.2.1.jar, javax.servlet.jsp.jstl-api-1.2.1.jar. Put these inside lib folder inside WEB-INF. Additionally also put all jars from the Spring framework into /WEB-INF/lib otherwise it will not work.
 
 In this project, Spring configuration with MVC webapp is covered. 
 
 * config present in /WEB-INF/web.xml and /WEB-INF/spring-mvc-demo-servlet.xml
 	* web.xml has config for the Spring MVC DispatcherServlet.
 	* spring-mvc-demo-servlet.xml defines component-scan and properties for views.
+	* access static resources(images, css, JavaScript files etc.), see WebContent/resources/ and config in spring-mvc-demo-servlet.xml mvc:resources.
+	* deployment as a WAR in tomcat, see README_WAR_deployment.txt.
 
-
+* The following topics have been covered in HelloWorldController:
+	* @Controller and @RequestMapping to handle requests, main Controller is HomeController.
+	* Basic JSP form with a GET request to say hello (/processForm) in HelloWorldController.
+	* Basic JSP form which gets its params from the model (/processFormVersionTwo) in HelloWorldController.
+	
+	
+	
 
 
 
